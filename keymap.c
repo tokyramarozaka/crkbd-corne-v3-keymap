@@ -23,11 +23,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,------------------------------------------------------------------------------------------.   ,----------------------------------------------------------------------------------------------------|.
     KC_TAB, KC_Q              , KC_W             , KC_E             , KC_R             , KC_T      , KC_Y, KC_U             , KC_I             , KC_O             , KC_P                , KC_BSPC       ,
   //|------+------------------+------------------+------------------+------------------+------|    |-----+------------------+------------------+------------------+---------------------+---------------|
-    KC_LSFT, MT(MOD_LGUI,KC_A), MT(MOD_LALT,KC_S), MT(MOD_LCTL,KC_D), MT(MOD_LSFT,KC_F), KC_G      , KC_H, MT(MOD_RSFT,KC_J), MT(MOD_RCTL,KC_K), MT(MOD_RALT,KC_L), MT(MOD_RGUI,KC_SCLN), LSFT(KC_MINUS),
+    KC_LSFT, MT(MOD_LGUI,KC_A), MT(MOD_LALT,KC_S), MT(MOD_LCTL,KC_D), MT(MOD_LSFT,KC_F), KC_G      , KC_H, MT(MOD_RSFT,KC_J), MT(MOD_RCTL,KC_K), MT(MOD_RALT,KC_L), MT(MOD_RGUI,KC_SCLN), KC_RSFT       ,
   //|------+-----------------+-------------------+------------------+------------------+------|    |-----+------------------+------------------+------------------+---------------------+---------------|
-    KC_LCTL, KC_Z             , KC_X             , KC_C             , KC_V             , KC_B      , KC_N, KC_M             , KC_COMM          ,  KC_DOT          , KC_SLSH             ,  KC_MINUS,
+    KC_LCTL, KC_Z             , KC_X             , KC_C             , KC_V             , KC_B      , KC_N, KC_M             , KC_COMM          ,  KC_DOT          , KC_SLSH             ,  KC_MINUS     ,
   //|------+-----------------+-------------------+------------------+------------------+------|    |-----+------------------+------------------+------------------+---------------------+---------------|
-                                                  MT(MOD_LALT, KC_ESC),MO(1), MT(MOD_LSFT, KC_ENTER),    KC_SPC,MO(2), KC_RALT
+                                                 MT(MOD_LALT, KC_ESC),MO(1), MT(MOD_LSFT, KC_ENTER),KC_SPC,MO(2), KC_RALT
                                                //`--------------------------------------------'   `--------------------------'
 
   ),
@@ -72,14 +72,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #ifdef TAPPING_TERM_PER_KEY
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case MT(MOD_LGUI,KC_A):
-        case MT(MOD_RGUI,KC_SCLN):
-            return TAPPING_TERM + 80;
         case MT(MOD_LSFT,KC_F):
         case MT(MOD_RSFT,KC_J):
-            return TAPPING_TERM - 50;
-        default:
             return TAPPING_TERM;
+        default:
+            return TAPPING_TERM + 80;
     }
 }
 #endif
