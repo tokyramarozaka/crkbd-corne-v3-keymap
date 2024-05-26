@@ -10,4 +10,4 @@ This is the keyboard layout for the Corne v3 keyboard, programmed using QMK firm
 
 # Image of the keymap
 
-![Corne v3 Keyboard Layout](Corne%20v3.drawio.png)
+![Corne v3 Keyboard Layout](Corne%20layout.drawio.png)
